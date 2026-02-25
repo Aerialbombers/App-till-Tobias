@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class Betyg : MonoBehaviour
 {
-    public GameObject betyg;
+    [SerializeField] private GameObject betyg;
 
-    void Start()
+    public void SattBetyg()
     {
-
+        if (betyg == null)
+        {
+            Debug.LogError("Betyg-objektet är inte tilldelat i Inspector!", this);
+            return;
+        }
+        betyg.SetActive(true);
     }
 
-    public void sattbetyg()
+    public void DoljeBetyg()
     {
-        betyg.SetActive(true);
+        if (betyg == null)
+        {
+            Debug.LogError("Betyg-objektet är inte tilldelat i Inspector!", this);
+            return;
+        }
+        betyg.SetActive(false);
     }
 }
