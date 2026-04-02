@@ -3,24 +3,20 @@ using UnityEngine;
 public class Betyg : MonoBehaviour
 {
     [SerializeField] private GameObject betyg;
+    [SerializeField] private GameObject hem;
+    [SerializeField] private Animator animator;
 
-    public void SattBetyg()
+    public void SättBetyg()
     {
-        if (betyg == null)
-        {
-            Debug.LogError("Betyg-objektet är inte tilldelat i Inspector!", this);
-            return;
-        }
+
         betyg.SetActive(true);
+        hem.SetActive(false);
+        animator.SetTrigger("PlayAnimation");
     }
 
-    public void DoljeBetyg()
+    public void DöljBetyg()
     {
-        if (betyg == null)
-        {
-            Debug.LogError("Betyg-objektet är inte tilldelat i Inspector!", this);
-            return;
-        }
         betyg.SetActive(false);
+        hem.SetActive(true);
     }
 }
